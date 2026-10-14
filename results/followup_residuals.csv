@@ -1,0 +1,5 @@
+order,angle_deg,calculated_kj_mol,predicted_kj_mol,error_kj_mol,selection
+3,15.0,21.134655105423533,21.671055352586002,0.5364002471624687,targeted after inspecting original 30-degree error; no refit
+3,45.0,7.488649609693785,8.281992218265522,0.793342608571737,targeted after inspecting original 30-degree error; no refit
+2,15.0,21.134655105423533,19.341936487081778,-1.7927186183417554,targeted after inspecting original 30-degree error; no refit
+2,45.0,7.488649609693785,15.470791735001026,7.982142125307241,targeted after inspecting original 30-degree error; no refit

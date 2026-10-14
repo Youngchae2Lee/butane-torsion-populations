@@ -11,6 +11,7 @@ This repository is the public companion to Youngchae Lee's butane computational 
 - `data/final_geometries.json`: optimized coordinates in angstrom from the seven completed torsion jobs. Atom ordering matches `inputs/constrained/`.
 - `data/input_hashes.json`: hashes of the exact published new inputs, identical to those executed.
 - `results/`: derived outputs from `analyze.py`. Curve values between calculations are predictions, not independent reference energies.
+- `data/followup_15_45_audit.csv`, `followup_geometries.json`, `followup_input_provenance.csv`: two additional constrained jobs selected after the original evaluation. Both completed on 2026-10-15; retrieved hashes matched compute-host logs, exit codes were zero, all convergence criteria passed, and the expected connectivity was preserved. `analyze_followup.py` evaluates the original frozen models without refitting. Targeted follow-up metrics remain separate from the original held-out metrics.
 
 The fit/held-out angle assignment and model orders were recorded before running the seven jobs. Mirroring a geometry or duplicating a log is not an independent validation sample. The minimum calculations had already been inspected before this split was designed and are labeled diagnostics.
 

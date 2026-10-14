@@ -2,7 +2,7 @@
 
 A computational chemistry coursework extension: audit original Gaussian calculations, distinguish constrained torsions from conformer minima, and quantify how state counting and thermodynamic approximations change populations.
 
-**Status (2026-10-15):** four historical calculations recovered; three new minimum optimizations with frequencies and seven new constrained optimizations completed. A preregistered Fourier model was evaluated against three separately calculated held-out angles. This is an educational calculation study, with AI-assisted implementation and analysis; it does not establish experimental conformer populations or a new electronic-structure method.
+**Status (2026-10-15):** four historical calculations recovered; three new minimum optimizations with frequencies and nine new constrained optimizations completed. A preregistered Fourier model was evaluated against three separately calculated held-out angles, then two targeted follow-up angles without refitting. This is an educational calculation study, with AI-assisted implementation and analysis; it does not establish experimental conformer populations or a new electronic-structure method.
 
 ## Reproduce the analysis
 
@@ -10,6 +10,7 @@ Python 3.12, standard library only. No installation or Gaussian license is neede
 
 ```sh
 python analyze.py
+python analyze_followup.py
 ```
 
 The command regenerates CSV results, model coefficients and two standalone SVG figures in `results/`. It was actually executed with Python 3.12. Gaussian inputs are in `inputs/`; rerunning those electronic-structure calculations requires your own licensed Gaussian 16 installation and suitable compute allocation. Each input requests four processors and 4 GB; checkpoints have unique relative filenames. No scheduler or server configuration is supplied.
@@ -74,8 +75,23 @@ The primary model places its interior minimum at 66.79° and basin boundary at 1
 
 All three Gaussian minimum outputs report rotational symmetry number 1. Both physical conformers have symmetry number 2; applying that same correction to every minimum adds the same RT ln 2 to each Gibbs energy and leaves relative populations unchanged. Rotational symmetry and the two gauche wells are different counts. See [NIST butane](https://webbook.nist.gov/cgi/cbook.cgi?ID=C106978&Mask=1809) and [Gaussian thermochemistry](https://gaussian.com/wp-content/uploads/dl/thermo.pdf).
 
+## Completed targeted follow-up: 15° and 45°
+
+After inspecting the original 30° error, two new angles were selected for a local check. Both calculations converged and terminated normally, retained the expected bond graph, and matched their target angles within 0.00024°. All conditions match the original seven-point set; its 180° energy remains the reference. The models from commit `3090f6b` were frozen before these jobs and are preserved in `data/frozen_models_3090f6b.json`.
+
+| Angle | Calculated relative E | Frozen order-3 prediction | Prediction minus calculation |
+|---|---:|---:|---:|
+| 15° | 21.134655 | 21.671055 | +0.536400 |
+| 45° | 7.488650 | 8.281992 | +0.793343 |
+
+Energies are kJ/mol. The two-point order-3 MAE/RMSE are 0.664871/0.677170 kJ/mol; order-2 values are 4.887430/5.784826. The order-3 model overestimates both new points as well as the original 30° point. This indicates a local shape discrepancy in the 15–45° region. The new angles were selected adaptively, so these metrics are reported separately and do not replace the original three-point evaluation. No coefficients or population estimates were revised.
+
+`python analyze_followup.py` reproduces these results and the nine-point plot. The original figures above retain only the original seven-point dataset.
+
+![Nine actual points and frozen model predictions](results/followup_nine_points.svg)
+
 ## Next step
 
-Keep this seven-point evaluation frozen. A prospective next check is a separately computed 15°/45° pair, because the current largest held-out error is at 30°. If models are revised using any existing held-out data, new untouched angles are needed for the next independent evaluation. Denser constrained calculations, alternative starting structures, hindered-rotor treatment, basis/method sensitivity, and experiment would address different remaining uncertainties. None has been performed here. No ML model has been trained.
+Keep the seven-point evaluation and targeted two-point follow-up frozen. A next study could compare a richer symmetry-preserving Fourier model using an explicitly revised fit set and new untouched validation angles. Do not report the already-inspected five evaluation points as a fresh independent test after fitting them. Denser constrained calculations, alternative starting structures, hindered-rotor treatment, basis/method sensitivity, and experiment would address different remaining uncertainties. No such expanded study or ML training has been performed.
 
 The original plan is preserved in [docs/preregistered_plan_ko.md](docs/preregistered_plan_ko.md), including its historical “not yet executed” status. This README and the result CSVs record the completed execution.

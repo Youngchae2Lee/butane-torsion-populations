@@ -1,0 +1,3 @@
+input,role,target_angle_deg,initial_angle_deg,source_log,source_sha256,input_sha256,transformation
+butane_015.gjf,prospective_targeted_followup,15,15.000000000000009,buta0_dftpd.log,81b0152c685a9c43703343f3e7a9cf70f12667a0e913178e2cce6b328d5ce544,fcc1ca4dbd68a837b5a26c68a12942ad9d1c55796f521a1475ab3c68d3eedc1c,Rigid rotation of atoms 8-14 about C5-C8 from audited final geometry
+butane_045.gjf,prospective_targeted_followup,45,45.000000000000014,buta60_dftpd.log,e81a2951de448e25d2f662204c5f20e67cf498f5227a272466e48b9962130556,331dbeba2758bb0262f1bb67ed5df67e460ce8ba086822f96caa5e5be3ffee2c,Rigid rotation of atoms 8-14 about C5-C8 from audited final geometry
