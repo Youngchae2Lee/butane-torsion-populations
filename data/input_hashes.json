@@ -1,0 +1,42 @@
+[
+  {
+    "file": "inputs/constrained/butane_000.gjf",
+    "sha256": "38021fb12f2023cd532247fa10c8442630be9bf4d6862f97e1fceb4f38b096b3"
+  },
+  {
+    "file": "inputs/constrained/butane_030.gjf",
+    "sha256": "148b5c707a0d27627bc58b3628f0fdd410011077c0fec73f6dc6aed5f1d8e059"
+  },
+  {
+    "file": "inputs/constrained/butane_060.gjf",
+    "sha256": "375d80113828575aac9f203f5658bb3798b49a850bbf732b9990c392ea20d008"
+  },
+  {
+    "file": "inputs/constrained/butane_090.gjf",
+    "sha256": "5be1fb74a66126c7c857a1d2c316537cf130fecdcec2491e8431d55edf48b5aa"
+  },
+  {
+    "file": "inputs/constrained/butane_120.gjf",
+    "sha256": "c9bd063fa1bcbeb0c183b7635e3920371b617d5edcf396ec87f452a42dbfe75b"
+  },
+  {
+    "file": "inputs/constrained/butane_150.gjf",
+    "sha256": "9b3203939fd2c99a803283c9e2b900f77d60b5190293cf359c4291b2a6b19ab6"
+  },
+  {
+    "file": "inputs/constrained/butane_180.gjf",
+    "sha256": "7fa09ca1661a5364ae1f963a2e6554f895d6308dbf8da29d63fe00c70e04c09a"
+  },
+  {
+    "file": "inputs/minima/butane_anti_optfreq.gjf",
+    "sha256": "2d673e3661b62ee7ff88f639b33f797fc6e91d6ba77920cc96544a86019adf38"
+  },
+  {
+    "file": "inputs/minima/butane_gauche_minus_optfreq.gjf",
+    "sha256": "6009821f48ab8703dd85f0f5716d557f44d88643f56311f3a483aab41209099c"
+  },
+  {
+    "file": "inputs/minima/butane_gauche_plus_optfreq.gjf",
+    "sha256": "5d6e62c63f07f4d8b5d4856d9fc70820714264f6b4afe2a3531cad4f5b80e077"
+  }
+]

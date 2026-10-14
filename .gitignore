@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.log
+*.out
+*.chk
+*.fchk
+*.rwf
+*.scr
+.env
+scratch/

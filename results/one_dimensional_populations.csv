@@ -1,0 +1,4 @@
+order,boundary_deg,points_per_basin,total_gauche_percent,measure
+3,119.51932538318769,1000,31.26216275976182,uniform dphi; mirrored basins; electronic model only
+3,119.51932538318769,10000,31.262162759761726,uniform dphi; mirrored basins; electronic model only
+2,,,,No unique interior maximum; no three-basin interpretation

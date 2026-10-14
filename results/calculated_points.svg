@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+<rect width="800" height="500" fill="white"/>
+<g font-family="sans-serif" font-size="14" fill="#182536">
+<text x="65" y="28" font-size="20">Butane: calculated points and Fourier models</text>
+<path d="M65 390 H715" stroke="#dde3e9"/>
+<text x="30" y="395">0</text>
+<path d="M65 330 H715" stroke="#dde3e9"/>
+<text x="30" y="335">5</text>
+<path d="M65 270 H715" stroke="#dde3e9"/>
+<text x="30" y="275">10</text>
+<path d="M65 210 H715" stroke="#dde3e9"/>
+<text x="30" y="215">15</text>
+<path d="M65 150 H715" stroke="#dde3e9"/>
+<text x="30" y="155">20</text>
+<path d="M65 90 H715" stroke="#dde3e9"/>
+<text x="30" y="95">25</text>
+<text x="57.0" y="415">0</text>
+<text x="165.0" y="415">30</text>
+<text x="273.0" y="415">60</text>
+<text x="381.0" y="415">90</text>
+<text x="489.0" y="415">120</text>
+<text x="597.0" y="415">150</text>
+<text x="705.0" y="415">180</text>
+<circle cx="65.0" cy="98.9816069352791" r="5" fill="#182536"/>
+<rect x="168.0" y="215.03712561829735" width="10" height="10" fill="#ffffff" stroke="#a32954" stroke-width="2"/>
+<circle cx="281.0" cy="341.1172189786313" r="5" fill="#182536"/>
+<rect x="384.0" y="288.1264357062596" width="10" height="10" fill="#ffffff" stroke="#a32954" stroke-width="2"/>
+<circle cx="497.0" cy="225.20218704317318" r="5" fill="#182536"/>
+<rect x="600.0" y="307.372849849443" width="10" height="10" fill="#ffffff" stroke="#a32954" stroke-width="2"/>
+<circle cx="713.0" cy="390.0" r="5" fill="#182536"/>
+<text x="65" y="445">Angle (degrees); energy relative to 180 degrees (kJ/mol)</text>
+<text x="65" y="55">Filled circles: 4 fit points | Open squares: 3 held-out calculations</text>
+</g></svg>
