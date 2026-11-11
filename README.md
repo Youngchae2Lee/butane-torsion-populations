@@ -2,7 +2,7 @@
 
 A computational chemistry coursework extension: audit original Gaussian calculations, distinguish constrained torsions from conformer minima, and quantify how state counting and thermodynamic approximations change populations.
 
-**Status (2026-10-15):** four historical calculations recovered; three new minimum optimizations with frequencies and nine new constrained optimizations completed. A preregistered Fourier model was evaluated against three separately calculated held-out angles, then two targeted follow-up angles without refitting. This is an educational calculation study, with AI-assisted implementation and analysis; it does not establish experimental conformer populations or a new electronic-structure method.
+**Status (2026-11-11):** four historical calculations recovered; three new minimum optimizations with frequencies and fourteen new constrained optimizations completed. The original study and targeted follow-up are preserved below. Stage 2 refits on the nine previously observed angles and evaluates three prespecified models on five newly calculated angles. This is an educational calculation study, with AI-assisted implementation and analysis; it does not establish experimental conformer populations or a new electronic-structure method.
 
 ## Reproduce the analysis
 
@@ -11,6 +11,7 @@ Python 3.12, standard library only. No installation or Gaussian license is neede
 ```sh
 python analyze.py
 python analyze_followup.py
+python analyze_stage2.py evaluate
 ```
 
 The command regenerates CSV results, model coefficients and two standalone SVG figures in `results/`. It was actually executed with Python 3.12. Gaussian inputs are in `inputs/`; rerunning those electronic-structure calculations requires your own licensed Gaussian 16 installation and suitable compute allocation. Each input requests four processors and 4 GB; checkpoints have unique relative filenames. No scheduler or server configuration is supplied.
@@ -90,8 +91,28 @@ Energies are kJ/mol. The two-point order-3 MAE/RMSE are 0.664871/0.677170 kJ/mol
 
 ![Nine actual points and frozen model predictions](results/followup_nine_points.svg)
 
+## Stage 2 — new validation, 2026-11-11
+
+The [stage-2 protocol](docs/stage2_plan_20261111.md), model coefficients and predictions were committed and pushed in `1750af7` before launching the new jobs. All nine previously observed points became the equal-weight fit set. The earlier held-out labels remain historical; these points are no longer independent validation in stage 2. New validation angles are 20°,75°,105°,135°,165°. The first targets a known discrepancy; the others broaden angular coverage. These five designed points do not establish a whole-curve error bound.
+
+All five new jobs used the same route, converged with four YES criteria, terminated normally, retained the expected connectivity, and matched their target angles within 0.00024°. Retrieved log hashes matched the compute-host originals. No frequency calculations were added. New relative electronic energies are 19.028873,4.577154,12.191930,11.373615,1.850618 kJ/mol, respectively, against the existing matched 180° calculation.
+
+| Prespecified model | New-point MAE | New-point RMSE | Maximum absolute error | Uniform-angle total gauche (%) |
+|---|---:|---:|---:|---:|
+| Order 3, refitted baseline | 0.2558 | 0.3087 | 0.5105 | 31.4540 |
+| Order 4, primary extension | 0.1391 | 0.1572 | 0.2557 | 31.7204 |
+| Order 5, secondary diagnostic | 0.0907 | 0.1039 | 0.1831 | 30.1265 |
+
+Errors are kJ/mol. Every model was fixed before seeing these five reference values; none was retuned afterward. Comparisons among these rows use the same fit/evaluation sets. Comparing their numbers directly with the original three-point RMSE would conflate changes in the model, fit data and evaluation angles.
+
+Lower validation RMSE does not ensure better minimum energetics: order 3/4/5 predict a gauche–anti minimum gap of 3.5962/3.4228/3.7854 kJ/mol and minimum angles 66.2333/64.9243/64.4950°, versus the already-known optimized gap 3.8306 kJ/mol and angle 65.3156°. These are diagnostics, not new blind tests. The primary order-4 model improves the five-point RMSE but worsens this minimum-gap diagnostic relative to the refitted order-3 model. Unconstrained least squares does not force exact passage through the minima or the 180° zero.
+
+All three curves have the expected three-well topology. Their uniform-dphi integrals are stable between 1,000 and 10,000 midpoint cells per basin, yet order 4 and 5 differ by approximately **1.59 percentage points** in total gauche population. This spread is model sensitivity, not a statistical confidence interval. Other-coordinate entropy and hindered-rotor physics remain unaccounted for. The order-5 result is better on this evaluation set, not an independently certified final physical population.
+
+![Stage 2 calculated fit and validation points with frozen model curves](results/stage2.svg)
+
 ## Next step
 
-Keep the seven-point evaluation and targeted two-point follow-up frozen. A next study could compare a richer symmetry-preserving Fourier model using an explicitly revised fit set and new untouched validation angles. Do not report the already-inspected five evaluation points as a fresh independent test after fitting them. Denser constrained calculations, alternative starting structures, hindered-rotor treatment, basis/method sensitivity, and experiment would address different remaining uncertainties. No such expanded study or ML training has been performed.
+Preserve all three evaluation stages. Before any further fitting, specify whether the goal is whole-curve accuracy, minimum energy differences or basin populations. A focused next candidate is a new constrained 65°/70° pair near the gauche well, evaluated against the frozen stage-2 curves. These have not been computed; the already-known optimized minimum remains a diagnostic. If any existing validation data are absorbed into a new fit, reserve new untouched evaluation points. Alternative starting structures, hindered-rotor treatment, basis/method sensitivity and experiment address distinct remaining uncertainties. No ML training has been performed.
 
 The original plan is preserved in [docs/preregistered_plan_ko.md](docs/preregistered_plan_ko.md), including its historical “not yet executed” status. This README and the result CSVs record the completed execution.

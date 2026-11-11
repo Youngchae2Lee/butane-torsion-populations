@@ -23,4 +23,6 @@ Personal paths, hostnames, server accounts, credentials, license text, report/pr
 
 ## Continuing publication
 
+Stage 2 (2026-11-11): `data/stage2_frozen_models.json` and `docs/stage2_plan_20261111.md` were published at commit `1750af7` before Gaussian execution. The nine existing constrained points were reused as development data; five new calculations at 20/75/105/135/165 degrees supply a separate evaluation. `data/stage2_audit.csv`, `stage2_geometries.json`, and `stage2_input_provenance.csv` retain the new evidence. `analyze_stage2.py evaluate` reads the frozen predictions and checks source-table hashes. Full new logs are retained privately; five remote/local log hashes and exit codes were verified. The new Gaussian version and Cartesian basis convention match the earlier jobs (16 C.01; 6D).
+
 Future updates should publish reviewed inputs, curated extracts, reproducible analysis and explicit limitations at this repository. Preserve earlier evaluated datasets and keep subsequent fit/validation splits identifiable. Do not upload the private working directory wholesale. Public Git history is the record of published releases, while complete raw backups remain in the private archive.

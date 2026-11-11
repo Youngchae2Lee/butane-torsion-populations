@@ -8,6 +8,10 @@
     "sha256": "fcc1ca4dbd68a837b5a26c68a12942ad9d1c55796f521a1475ab3c68d3eedc1c"
   },
   {
+    "file": "inputs/constrained/butane_020.gjf",
+    "sha256": "31b8421f6ee81d41a293f1ad791428d5501c29bfb61000ed5cec25eee93a4df5"
+  },
+  {
     "file": "inputs/constrained/butane_030.gjf",
     "sha256": "148b5c707a0d27627bc58b3628f0fdd410011077c0fec73f6dc6aed5f1d8e059"
   },
@@ -20,16 +24,32 @@
     "sha256": "375d80113828575aac9f203f5658bb3798b49a850bbf732b9990c392ea20d008"
   },
   {
+    "file": "inputs/constrained/butane_075.gjf",
+    "sha256": "18fd6136728545c15d76a2fd3ba1c3921660299e7b4c578e9721408d200d6bcc"
+  },
+  {
     "file": "inputs/constrained/butane_090.gjf",
     "sha256": "5be1fb74a66126c7c857a1d2c316537cf130fecdcec2491e8431d55edf48b5aa"
+  },
+  {
+    "file": "inputs/constrained/butane_105.gjf",
+    "sha256": "624c053a474d5acd59fb1939f6c694cf702e1128c83f73854bc345b819009042"
   },
   {
     "file": "inputs/constrained/butane_120.gjf",
     "sha256": "c9bd063fa1bcbeb0c183b7635e3920371b617d5edcf396ec87f452a42dbfe75b"
   },
   {
+    "file": "inputs/constrained/butane_135.gjf",
+    "sha256": "1d2048952bf49d335a19e18606fca408ac534995020f6fffa3ea2e50994f7080"
+  },
+  {
     "file": "inputs/constrained/butane_150.gjf",
     "sha256": "9b3203939fd2c99a803283c9e2b900f77d60b5190293cf359c4291b2a6b19ab6"
+  },
+  {
+    "file": "inputs/constrained/butane_165.gjf",
+    "sha256": "34c01daf8edcf3a12f1a0d7890b92175b9486c0ca2b0cf08af12dce480a49a3f"
   },
   {
     "file": "inputs/constrained/butane_180.gjf",
