@@ -2,7 +2,7 @@
 
 A computational chemistry coursework extension: audit original Gaussian calculations, distinguish constrained torsions from conformer minima, and quantify how state counting and thermodynamic approximations change populations.
 
-**Status (2026-11-11):** four historical calculations recovered; three new minimum optimizations with frequencies and fourteen new constrained optimizations completed. The original study and targeted follow-up are preserved below. Stage 2 refits on the nine previously observed angles and evaluates three prespecified models on five newly calculated angles. This is an educational calculation study, with AI-assisted implementation and analysis; it does not establish experimental conformer populations or a new electronic-structure method.
+**Status (2026-11-11):** four historical calculations recovered; three new minimum optimizations with frequencies and sixteen new constrained optimizations completed. The original study and targeted follow-up are preserved below. Stage 2 refits on the nine previously observed angles and evaluates three prespecified models on five newly calculated angles, followed by two targeted gauche-well checks without refitting. This is an educational calculation study, with AI-assisted implementation and analysis; it does not establish experimental conformer populations or a new electronic-structure method.
 
 ## Reproduce the analysis
 
@@ -12,6 +12,7 @@ Python 3.12, standard library only. No installation or Gaussian license is neede
 python analyze.py
 python analyze_followup.py
 python analyze_stage2.py evaluate
+python analyze_well.py evaluate
 ```
 
 The command regenerates CSV results, model coefficients and two standalone SVG figures in `results/`. It was actually executed with Python 3.12. Gaussian inputs are in `inputs/`; rerunning those electronic-structure calculations requires your own licensed Gaussian 16 installation and suitable compute allocation. Each input requests four processors and 4 GB; checkpoints have unique relative filenames. No scheduler or server configuration is supplied.
@@ -113,6 +114,23 @@ All three curves have the expected three-well topology. Their uniform-dphi integ
 
 ## Next step
 
-Preserve all three evaluation stages. Before any further fitting, specify whether the goal is whole-curve accuracy, minimum energy differences or basin populations. A focused next candidate is a new constrained 65°/70° pair near the gauche well, evaluated against the frozen stage-2 curves. These have not been computed; the already-known optimized minimum remains a diagnostic. If any existing validation data are absorbed into a new fit, reserve new untouched evaluation points. Alternative starting structures, hindered-rotor treatment, basis/method sensitivity and experiment address distinct remaining uncertainties. No ML training has been performed.
+The targeted 65°/70° pair is now complete (below). Before any further fitting, specify whether the goal is whole-curve accuracy, minimum energy differences or basin populations. If existing validation data are absorbed into a new fit, reserve new untouched evaluation points. Alternative starting structures, hindered-rotor treatment, basis/method sensitivity and experiment address distinct remaining uncertainties. No ML training has been performed.
+
+## Completed gauche-well checks: 65° and 70°
+
+The [targeted protocol](docs/well_65_70_plan.md) and prospective predictions were published in `b96ca35` before execution. Both new constrained jobs used the same conditions and energy reference as stage 2, terminated normally, met all four convergence criteria and retained C4H10 connectivity. Final torsions are 65.000051° and 69.999974°. Source input and retrieved log hashes were verified. No frequencies were calculated at these constrained points.
+
+| Target angle | Calculated relative E | Order-3 error | Order-4 error | Order-5 error |
+|---|---:|---:|---:|---:|
+| 65° | 3.831400 | −0.484099 | −0.389909 | −0.155668 |
+| 70° | 4.013788 | −0.541318 | −0.316271 | −0.060833 |
+
+All values are kJ/mol; error is prediction minus calculation. Two-point RMSE is 0.513506/0.355004/0.118180 kJ/mol for orders 3/4/5. Every frozen model underestimates both energies. Order 5 is closest on this targeted pair, while residual error near the well remains measurable. These angles were chosen after inspecting stage-2 diagnostics; they are new calculations for a local check, not a representative global error sample. Metrics remain separate from the earlier five-point evaluation.
+
+The fixed 65° result is consistent with the already-known nearby 65.3156° unconstrained minimum, but it is not itself an unconstrained stationary point. No coefficients, model selection procedure or population estimates were changed after seeing these results. In particular, the previous order-5 integrated gauche fraction of 30.13% remains a model estimate, not a verified physical fraction.
+
+`python analyze_well.py evaluate` regenerates the residuals, metrics and figure from audited data and frozen predictions. The source-model hash is checked before evaluation.
+
+![Frozen curves and actual new 65/70 degree calculations](results/well_65_70.svg)
 
 The original plan is preserved in [docs/preregistered_plan_ko.md](docs/preregistered_plan_ko.md), including its historical “not yet executed” status. This README and the result CSVs record the completed execution.

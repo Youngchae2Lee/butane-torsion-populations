@@ -27,9 +27,9 @@ def evaluate():
     print(json.dumps({'residuals':residuals,'metrics':metrics},indent=2))
 def plot(truth,models):
     def x(a):return 70+(a-55)*24
-    def y(e):return 370-(e-3)*100
+    def y(e):return 370-(e-3)*75
     p=['<svg xmlns="http://www.w3.org/2000/svg" width="800" height="490" viewBox="0 0 800 490">','<rect width="800" height="490" fill="white"/>','<g font-family="sans-serif" font-size="14">','<text x="70" y="25" font-size="20">Gauche well: frozen curves and two new calculations</text>']
-    for e in [3,4,5,6]:p += [f'<path d="M70 {y(e)} H670" stroke="#ddd"/>',f'<text x="35" y="{y(e)+5}">{e}</text>']
+    for e in [3,4,5,6,7]:p += [f'<path d="M70 {y(e)} H670" stroke="#ddd"/>',f'<text x="35" y="{y(e)+5}">{e}</text>']
     for a in [55,60,65,70,75,80]:p.append(f'<text x="{x(a)-8}" y="400">{a}</text>')
     for i,(n,m) in enumerate(models.items()):
         color=['#777','#176cc0','#c66a18'][i]

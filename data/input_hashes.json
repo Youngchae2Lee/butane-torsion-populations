@@ -24,6 +24,14 @@
     "sha256": "375d80113828575aac9f203f5658bb3798b49a850bbf732b9990c392ea20d008"
   },
   {
+    "file": "inputs/constrained/butane_065.gjf",
+    "sha256": "a06d0b8ca4f68192f0c458cc1dd7243b117e220d407e6007a94ceffcf96e8ab3"
+  },
+  {
+    "file": "inputs/constrained/butane_070.gjf",
+    "sha256": "ccce54fa00429b456ec0a77ef95458efe4ce376d10170dd5bfaeefd560974d39"
+  },
+  {
     "file": "inputs/constrained/butane_075.gjf",
     "sha256": "18fd6136728545c15d76a2fd3ba1c3921660299e7b4c578e9721408d200d6bcc"
   },
