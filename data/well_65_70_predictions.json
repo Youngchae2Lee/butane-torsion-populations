@@ -1,0 +1,36 @@
+{
+  "source_model_sha256": "0121e3009c40384dc0795b34c42ec15db1026139f2357d1ace610e1c3aeaf950",
+  "selection": "targeted near known gauche minimum; no refit",
+  "predictions": [
+    {
+      "order": "3",
+      "angle_deg": 65,
+      "predicted_kj_mol": 3.3473003179165586
+    },
+    {
+      "order": "3",
+      "angle_deg": 70,
+      "predicted_kj_mol": 3.4724698164525485
+    },
+    {
+      "order": "4",
+      "angle_deg": 65,
+      "predicted_kj_mol": 3.44149079206031
+    },
+    {
+      "order": "4",
+      "angle_deg": 70,
+      "predicted_kj_mol": 3.6975166779052553
+    },
+    {
+      "order": "5",
+      "angle_deg": 65,
+      "predicted_kj_mol": 3.6757314429018186
+    },
+    {
+      "order": "5",
+      "angle_deg": 70,
+      "predicted_kj_mol": 3.9529546550015624
+    }
+  ]
+}
